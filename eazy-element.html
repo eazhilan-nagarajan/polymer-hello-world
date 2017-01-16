@@ -1,0 +1,36 @@
+<!-- Imports polymer -->
+<link rel="import" href="components/polymer/polymer.html">
+
+<dom-module id="eazy-element">
+	<template>
+		<h1><paper-input value="{{message}}">{{message}}</paper-input></h1>
+		<h3>Today's date: {{date}}</h3>
+		<h3>Is it a custom attribute? {{isSuccess}}</h3>
+	</template>
+</dom-module>
+
+<script>
+	
+	Polymer({
+		is: 'eazy-element',
+		properties:{
+			message:{
+				type: String,
+				value: 'Hi, this is a custom element!'
+			},
+			date:{
+				type: Date,
+				value: function(){
+					return new Date();
+				},
+				reflectToAttribute: true
+			},
+			isSuccess:{
+				type: Boolean,
+				value: true,
+				reflectToAttribute: true
+			}
+		}
+	});
+
+</script>
